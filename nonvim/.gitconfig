@@ -1,0 +1,21 @@
+[alias]
+	gl = log --pretty=format:\"%C(Red)%h %C(yellow)[%ai] %C(reset)<%an> %Cgreen%s%Creset\"
+	glc = log --pretty=format:\"%h [%ai] <%an,%cn> %s%n\"
+    sl = show --stat --pretty=format:\"%h %C(yellow)[%ai] %Cblue<%an> %Cgreen%s%Creset\"
+    trackfile = status -uno -s
+	st = status
+	co = checkout
+    dc = diff --color-words
+[user]
+	name = Peter
+	email = xiongjianfei@cvte.cn
+[core]
+	editor = vim
+	pager = less -x4
+[color]
+	ui = auto
+
+#gl = log --pretty=format:\"%C(Red)%h %C(yellow)[%ai] %C(reset)<%an> [%ae]  %Cgreen%s%Creset\"
+#sl = show --stat --pretty=format:\"%h %C(yellow)[%ai] %Cblue<%an> [%ae]  %Cgreen%s%Creset\"
+[am]
+	keepcr = true
