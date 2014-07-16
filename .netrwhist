@@ -1,6 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/xjf/codes/mtk/mt8121/SDK4.2.2/mediatek/hardware/camera/common/paramsmgr/feature/custom'
-let g:netrw_dirhist_2='/home/xjf/codes/mtk/mt8121/4.4.2/mediatek/custom/kx_8382_712h/kernel/alsps/cm36283'
-let g:netrw_dirhist_3='/home/xjf/codes/mtk/mt8121/4.4.2/mediatek/platform/mt6582/hardware/audio'
-let g:netrw_dirhist_4='/home/xjf/bin/repo_mail'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/xjf/codes/mtk/pure/more/SDK4.4.2/packages/apps'
+let g:netrw_dirhist_2='/home/xjf/codes/mtk/pure/test/SDK4.4.2/cts/hostsidetests/appsecurity'
+let g:netrw_dirhist_3='/home/xjf/codes/mtk/base/test/SDK4.4.2/mediatek/config/cvte_factory'
+let g:netrw_dirhist_4='/home/xjf/codes/mtk/pure/test/SDK4.4.2/frameworks/base/tests/netll'
+let g:netrw_dirhist_5='/home/xjf/codes/mtk/pure/test/SDK4.4.2/mediatek/custom/common/kernel/hall/common'
+let g:netrw_dirhist_6='/home/xjf/codes/mtk/pure/more/SDK4.4.2/mediatek/config/cvte_852h'

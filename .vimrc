@@ -97,6 +97,7 @@ let g:miniBufExpMapWindowNavVim=1
 let g:miniBufExpMapWindowNavArrows=1
 let g:miniBufExpMapCTabSwitchBufs=1
 let g:miniBufExpModSelTarget=1
+nmap \mb :TMiniBufExplorer<cr>
 
 "Tlist
 let Tlist_Show_One_File=1
@@ -224,7 +225,8 @@ cnoremap autotags autocmd BufWritePost *.cpp,*.h,*.c call UpdateTags()
 " 所用的Vim版本必须包含autocommands特性。
 autocmd Filetype java set omnifunc=javacomplete#Complete
 autocmd FileType java set completefunc=javacomplete#CompleteParamsInf
-autocmd FileType c set noexpandtab
+autocmd FileType c set expandtab
+autocmd FileType java set expandtab
 
 
 
@@ -271,9 +273,9 @@ inoremap de<tab> #define
 "inoremap <cr> <cr>
 inoremap hack<tab>	/* @xiong */<esc>0lllli
 inoremap hacke<tab> /* #xiong */<esc>0lllli
-nmap <leader>ahk  o<esc>\cA xiongjianfei <c-r>=strftime("%Y-%m-%d")<cr> <esc>
-nmap <leader>ahe  o<esc>\cA end@xiongjianfei <esc>
-nmap <leader>mhk  o/* xiongjianfei <c-r>=strftime("%Y-%m-%d")<cr> */<esc>
+nmap <leader>ahk  o<esc>\cA added by cvte_peter <esc>
+nmap <leader>ahe  o<esc>\cA end by cvte_peter <esc>
+nmap <leader>mhk  o<esc>\cA modified by cvte_peter <esc>
 nmap <leader>mhe  o/* end@xiongjianfei */<esc>
 nmap <leader>xgd  ixiongjianfei <c-r>=strftime("%Y-%m-%d")<cr><esc>
 nmap <leader>gd   i<c-r>=strftime("%Y-%m-%d")<cr><esc>
@@ -361,9 +363,10 @@ nmap wm :NERDTree<cr>:Tlist<CR>
 ":mmap <F5> <ESC><F5>  :nmap <F6> :cc<CR> 
 ":mmap <F6> <ESC><F6>  :nmap <F7> :cn<CR>   
 ":imap <F7> <ESC><F7>  :nmap <F8> :cp<CR>
-nmap qqq :q!<cr>
+nmap qqq :qa!<cr>
+nmap qs :q!<cr>
 nmap www :w<cr>
-nmap wq :wq<cr>
+nmap wq :wqa<cr>
 nmap make :make<cr>
 nmap <C-\> :!ctags -R --c++-kinds=+p --fields=+ialS --extra=+q .<CR>:set tags+=tags<cr>
 nmap # /\<<c-r><c-w>\><cr>
@@ -398,11 +401,11 @@ nmap <leader>del    :s/\s\+$//g<cr>
 " mid code comment
 nmap <leader>as  <esc>$a<tab>// added by cvte_peter
 nmap <leader>ms  <esc>$a<tab>// modified by cvte_peter
-nmap <leader>ams  o/* added by cvte_peter */<esc>
-nmap <leader>ame  o/* end by cvte_peter */<esc>
-nmap <leader>mms  o/* modified by cvte_peter */<esc>
-nmap <leader>cms  o/* commented by cvte_peter */<esc>
-nmap <leader>mme  o/* end by cvte_peter */<esc>
+nmap <leader>ams  o/* added by cvte_peter @{ */<esc>
+nmap <leader>ame  o/* end by cvte_peter @} */<esc>
+nmap <leader>mms  o/* modified by cvte_peter @{ */<esc>
+nmap <leader>cms  o/* commented by cvte_peter @{ */<esc>
+nmap <leader>mme  o/* end by cvte_peter  @}*/<esc>
 nmap <leader>tag   <esc>a<tab>/* cvte_peter */<esc>
 
 nmap <leader>msp    <esc>a<tab>// [patch] ,cvte_peter, <c-r>=strftime("%Y-%m-%d")<cr> <esc>F]
@@ -451,10 +454,33 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
 let g:ctrlp_max_files = 0
-"let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+let g:ctrlp_user_command = 'find %s -type f | grep -v -P -i "\.jpg$|\.png$|\.ogg$|/tmp/|\.wav$|\.ttf$|\.mp4$|\.bmp$|\.ico$|\.so$|\.a$|\.jar$|\.o$"'
 "set autochdir
 
 
 " grep
-nnoremap <silent> <F3> :Rgrep<CR>
+nnoremap <silent> <F3> :Rgrep<CR><home>\<<end>\>
 nnoremap <silent> <F4> :Bgrep<CR>
+nnoremap <silent> <F5> :Rgrep<CR><c-u>
+let g:Grep_Skip_Dirs = '.git'
+let g:Grep_Skip_Files = 'tags'
+
+set wildignore=*.o,*.obj,*.bak,*.exe,*.aux,*.dvi,tags
+
+
+" to hex
+nmap \hex  :%!xxd<cr>
+
+nmap \cq :cclose<cr>
+
+" set incsearch
+
+" \;.   copy last editor
+" \'.   goto last editor
+" :his s    show search history
+" q/        show search history in window
+" !!command     get then command output
+"
+" n>    shrink
