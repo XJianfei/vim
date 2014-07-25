@@ -401,9 +401,9 @@ nmap <leader>del    :s/\s\+$//g<cr>
 " mid code comment
 nmap <leader>as  <esc>$a<tab>// added by cvte_peter
 nmap <leader>ms  <esc>$a<tab>// modified by cvte_peter
-nmap <leader>ams  o/* added by cvte_peter @{ */<esc>
+nmap <leader>ams  o/* <c-r>=strftime("%Y-%m-%d")<cr>, added by cvte_peter @{ */<esc>
 nmap <leader>ame  o/* end by cvte_peter @} */<esc>
-nmap <leader>mms  o/* modified by cvte_peter @{ */<esc>
+nmap <leader>mms  o/* <c-r>=strftime("%Y-%m-%d")<cr>, modified by cvte_peter @{ */<esc>
 nmap <leader>cms  o/* commented by cvte_peter @{ */<esc>
 nmap <leader>mme  o/* end by cvte_peter  @}*/<esc>
 nmap <leader>tag   <esc>a<tab>/* cvte_peter */<esc>
@@ -474,6 +474,10 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.aux,*.dvi,tags
 nmap \hex  :%!xxd<cr>
 
 nmap \cq :cclose<cr>
+
+" cscope
+" find `pwd` -type f | grep -v -P -i "\.jpg$|\.png$|\.ogg$|/tmp/|\.wav$|\.ttf$|\.mp4$|\.bmp$|\.ico$|\.so$|\.a$|\.jar$|\.o$" > cscope.files
+"
 
 " set incsearch
 
