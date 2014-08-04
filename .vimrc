@@ -357,7 +357,7 @@ nmap <leader>msa :set mouse=a<cr>
 nmap <leader>mse :set mouse=<cr>
 nmap tl :Tlist<cr>
 nmap tn :NERDTreeToggle<cr>
-nmap wm :NERDTree<cr>:Tlist<CR>
+nmap twm :NERDTree<cr>:Tlist<CR>
 "nmap wm :WMToggle<cr>
 ":nmap <F5> :cl<CR>  
 ":mmap <F5> <ESC><F5>  :nmap <F6> :cc<CR> 
@@ -365,8 +365,8 @@ nmap wm :NERDTree<cr>:Tlist<CR>
 ":imap <F7> <ESC><F7>  :nmap <F8> :cp<CR>
 nmap qqq :qa!<cr>
 nmap qs :q!<cr>
-nmap www :w<cr>
-nmap wq :wqa<cr>
+nmap zzz :w<cr>
+nmap zc :wqa<cr>
 nmap make :make<cr>
 nmap <C-\> :!ctags -R --c++-kinds=+p --fields=+ialS --extra=+q .<CR>:set tags+=tags<cr>
 nmap # /\<<c-r><c-w>\><cr>
@@ -398,11 +398,13 @@ nmap <leader>del    :s/\s\+$//g<cr>
 
 "nmap <c-m> :se<c-r>=GetChar()
 
+"nmap <leader>ams  o/* <c-r>=strftime("%Y-%m-%d")<cr>, added by cvte_peter @{ */<esc>
+"nmap <leader>ame  o/* end by cvte_peter @} */<esc>
 " mid code comment
 nmap <leader>as  <esc>$a<tab>// added by cvte_peter
 nmap <leader>ms  <esc>$a<tab>// modified by cvte_peter
-nmap <leader>ams  o/* <c-r>=strftime("%Y-%m-%d")<cr>, added by cvte_peter @{ */<esc>
-nmap <leader>ame  o/* end by cvte_peter @} */<esc>
+nmap <leader>ams  o/* <c-r>=strftime("%Y-%m-%d")<cr>, cvte_peter @{ */<esc>
+nmap <leader>ame  o/* @} */<esc>
 nmap <leader>mms  o/* <c-r>=strftime("%Y-%m-%d")<cr>, modified by cvte_peter @{ */<esc>
 nmap <leader>cms  o/* commented by cvte_peter @{ */<esc>
 nmap <leader>mme  o/* end by cvte_peter  @}*/<esc>
@@ -488,3 +490,7 @@ nmap \cq :cclose<cr>
 " !!command     get then command output
 "
 " n>    shrink
+
+" Edit mode
+imap <c-w> <esc>wwi
+imap <c-b> <esc>bbi

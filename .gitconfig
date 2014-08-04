@@ -1,5 +1,6 @@
 [alias]
 	gl = log --pretty=format:\"%C(Red)%h %C(yellow)[%ai] %C(reset)<%an> %Cgreen%s%Creset\"
+	glm = log --pretty=format:\"%C(Red)%h %C(yellow)[%ci] %C(reset)<%cn> %Cgreen%s%Creset\"
 	glc = log --pretty=format:\"%h [%ai] <%an,%cn> %s%n\"
     sl = show --stat --pretty=format:\"%h %C(yellow)[%ai] %Cblue<%an> %Cgreen%s%Creset\"
     trackfile = status -uno -s
