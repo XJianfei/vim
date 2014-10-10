@@ -366,7 +366,7 @@ nmap twm :NERDTree<cr>:Tlist<CR>
 nmap qqq :qa!<cr>
 nmap qs :q!<cr>
 nmap zzz :w<cr>
-nmap zc :wqa<cr>
+nmap ccc :wqa<cr>
 nmap make :make<cr>
 nmap <C-\> :!ctags -R --c++-kinds=+p --fields=+ialS --extra=+q .<CR>:set tags+=tags<cr>
 nmap # /\<<c-r><c-w>\><cr>
@@ -409,6 +409,8 @@ nmap <leader>mms  o/* <c-r>=strftime("%Y-%m-%d")<cr>, modified by cvte_peter @{ 
 nmap <leader>cms  o/* commented by cvte_peter @{ */<esc>
 nmap <leader>mme  o/* end by cvte_peter  @}*/<esc>
 nmap <leader>tag   <esc>a<tab>/* cvte_peter */<esc>
+nmap <leader>xjf  o<c-r>=strftime("%Y-%m-%d")<cr>, cvte_peter @{<esc>\c<space>
+nmap <leader>xe   o<c-r> @}<esc>\c<space>
 
 nmap <leader>msp    <esc>a<tab>// [patch] ,cvte_peter, <c-r>=strftime("%Y-%m-%d")<cr> <esc>F]
 nmap <leader>msb    <esc>a<tab>// [bug] ,cvte_peter, <c-r>=strftime("%Y-%m-%d")<cr> <esc>F]
@@ -494,3 +496,19 @@ nmap \cq :cclose<cr>
 " Edit mode
 imap <c-w> <esc>wwi
 imap <c-b> <esc>bbi
+
+" normal mode
+"
+
+
+
+
+
+
+
+nmap \tr :call append(line("."), 'Slog.i("line", getTraceInfo() + "====" + "'. getline(line(".")) .'");')<cr>
+
+
+
+" call:
+" setline getline append
