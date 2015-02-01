@@ -409,8 +409,8 @@ nmap <leader>mms  o/* <c-r>=strftime("%Y-%m-%d")<cr>, modified by cvte_peter @{ 
 nmap <leader>cms  o/* commented by cvte_peter @{ */<esc>
 nmap <leader>mme  o/* end by cvte_peter  @}*/<esc>
 nmap <leader>tag   <esc>a<tab>/* cvte_peter */<esc>
-nmap <leader>xjf  o<c-r>=strftime("%Y-%m-%d")<cr>, cvte_peter @{<esc>\c<space>
-nmap <leader>xe   o<c-r> @}<esc>\c<space>
+nmap <leader>xjf  o<c-r>=strftime("%Y-%m-%d")<cr>, cvte_peter @{<esc>^\c$
+nmap <leader>xe   o<c-r> @}<esc>^\c$
 
 nmap <leader>msp    <esc>a<tab>// [patch] ,cvte_peter, <c-r>=strftime("%Y-%m-%d")<cr> <esc>F]
 nmap <leader>msb    <esc>a<tab>// [bug] ,cvte_peter, <c-r>=strftime("%Y-%m-%d")<cr> <esc>F]
@@ -509,7 +509,6 @@ imap <c-b> <esc>bbi
 nmap \tr :call append(line("."), 'Slog.i("line", getTraceInfo() + "====" + "'. getline(line(".")) .'");')<cr>
 
 
-":set ignorecase
 
 " call:
 " setline getline append
