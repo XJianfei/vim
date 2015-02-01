@@ -140,6 +140,7 @@ alias gitdf='git diff'
 alias gitco='git checkout'
 # remove cache file
 alias gitrm='git status -s | sed -n "s/^\sD\s\(.*\)/\1/p" | xargs git rm'
+#alias gitrmadd='git status -s . | sed -n "s/^??\s\(.*\)/\1/p" | xargs rm -vfr"
 
 #run repo-mail
 #service repo-mail start
@@ -152,4 +153,5 @@ PERL_MM_OPT="INSTALL_BASE=/home/xjf/perl5"; export PERL_MM_OPT;
 #export PATCH=/home/xjf/ssd/mt8382/SDK4.4.2/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin:$PATH:
 export PATH=$PATH:/home/xjf/mtk/pure/test/SDK4.4.2/prebuilts/tools/gcc-sdk:
 export USE_DISTCC=true
-export DISTCC_HOSTS=" 172.18.44.242 172.18.44.157 172.18.45.77 172.18.44.221 172.18.45.190 172.18.47.221 172.18.47.222"
+#export DISTCC_HOSTS=" 172.18.44.242 172.18.44.157 172.18.44.221 172.18.45.190 172.18.47.221 172.18.47.222"
+export DISTCC_HOSTS=" 172.18.45.23 172.18.44.157 172.18.45.77 172.18.45.181 172.18.45.190 172.18.47.221"

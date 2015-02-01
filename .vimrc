@@ -509,6 +509,7 @@ imap <c-b> <esc>bbi
 nmap \tr :call append(line("."), 'Slog.i("line", getTraceInfo() + "====" + "'. getline(line(".")) .'");')<cr>
 
 
+":set ignorecase
 
 " call:
 " setline getline append
