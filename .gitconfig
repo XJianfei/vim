@@ -9,7 +9,7 @@
     dc = diff --color-words
 [user]
 	name = Peter
-	email = xiongjianfei@cvte.cn
+	email = peter@hung.com
 [core]
 	editor = vim
 	pager = less -x4

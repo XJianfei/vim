@@ -3,7 +3,37 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+function git_branch {
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
+    echo "("${ref#refs/heads/}") ";
+}
+
+set_term_title(){
+    echo -en "\033]0;$1\a"
+}
+
+function cur_dir {
+    set_term_title `basename $PWD`;
+    echo `basename $PWD`;
+}
+
+
+
+
+function git_since_last_commit {
+    now=`date +%s`;
+    last_commit=$(git log --pretty=format:%at -1 2> /dev/null) || return;
+    seconds_since_last_commit=$((now-last_commit));
+    minutes_since_last_commit=$((seconds_since_last_commit/60));
+    hours_since_last_commit=$((minutes_since_last_commit/60));
+    minutes_since_last_commit=$((minutes_since_last_commit%60));
+    echo "${hours_since_last_commit}h${minutes_since_last_commit}m ";
+}
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -28,7 +58,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
@@ -64,6 +94,7 @@ unset color_prompt force_color_prompt
 case "$TERM" in
 xterm*|rxvt*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    #PS1="[\[\033[1;32m\]\w\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\[\033[0m\]$ "
     ;;
 *)
     ;;
@@ -102,32 +133,18 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+  fi
 fi
 
-export PATH=/home/xjf/bin:/home/xjf/tbin:${PATH}:/home/xjf/software/android-studio/gradle/gradle-1.6/bin:
-
-function git_branch {
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return;
-    echo "("${ref#refs/heads/}") ";
-}
 
 
-
-function git_since_last_commit {
-    now=`date +%s`;
-    last_commit=$(git log --pretty=format:%at -1 2> /dev/null) || return;
-    seconds_since_last_commit=$((now-last_commit));
-    minutes_since_last_commit=$((seconds_since_last_commit/60));
-    hours_since_last_commit=$((minutes_since_last_commit/60));
-    minutes_since_last_commit=$((minutes_since_last_commit%60));
-    echo "${hours_since_last_commit}h${minutes_since_last_commit}m ";
-}
-
-
-
-PS1="[\[\033[1;32m\]\w\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\[\033[0m\]$ "
+#PS1="[\[\033[1;32m\]\w\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\[\033[0m\]$ "
+PS1="[\[\033[1;32m\]\$(cur_dir)\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\[\033[0m\]$ "
 
 alias tcmd='adb shell tcmd-subcase.sh'
 
@@ -150,8 +167,8 @@ export GREP_OPTIONS="--exclude-dir=.git"
 PERL_MB_OPT="--install_base \"/home/xjf/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/xjf/perl5"; export PERL_MM_OPT;
 
-#export PATCH=/home/xjf/ssd/mt8382/SDK4.4.2/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin:$PATH:
-export PATH=$PATH:/home/xjf/mtk/pure/test/SDK4.4.2/prebuilts/tools/gcc-sdk:
-export USE_DISTCC=true
-#export DISTCC_HOSTS=" 172.18.44.242 172.18.44.157 172.18.44.221 172.18.45.190 172.18.47.221 172.18.47.222"
-export DISTCC_HOSTS=" 172.18.45.23 172.18.44.157 172.18.45.77 172.18.45.181 172.18.45.190 172.18.47.221"
+#for python  
+export PYTHONSTARTUP=/usr/lib/python2.7/startup.py
+
+export PATH=$PATH:/home/hung/bin:
+
