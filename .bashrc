@@ -14,12 +14,17 @@ function git_branch {
 }
 
 set_term_title(){
-    echo -en "\033]0;$1\a"
+    echo -en "\033]0;${1/$HOME/\~}\a"
 }
 
 function cur_dir {
-    set_term_title `basename $PWD`;
-    echo `basename $PWD`;
+    #set_term_title `basename $PWD`;
+    set_term_title $PWD;
+    if [ $PWD == $HOME ]; then
+        echo "~";
+    else
+        echo `basename $PWD`;
+    fi
 }
 
 
@@ -143,8 +148,8 @@ fi
 
 
 
-#PS1="[\[\033[1;32m\]\w\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\[\033[0m\]$ "
-PS1="[\[\033[1;32m\]\$(cur_dir)\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\[\033[0m\]$ "
+PS1="[\[\033[1;32m\]\w\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\[\033[0m\]$ "
+#PS1="\[\033[1;32m\]\$(cur_dir)\[\033[0m\]\[\033[0m\]\[\033[1;36m\] \$(git_branch)\[\033[0;33m\]\[\033[0m\]\033[035m$\033[0m "
 
 alias tcmd='adb shell tcmd-subcase.sh'
 
