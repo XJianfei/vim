@@ -130,7 +130,13 @@ function git_since_last_commit {
     echo "${hours_since_last_commit}h${minutes_since_last_commit}m ";
 }
 
-PS1="[\[\033[1;32m\]\w\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\[\033[0m\]# "
+PS1_P=`id -nu`
+if [ "$PS1_P" == "root" ]; then
+    PS1_P="#"
+else
+    PS1_P="$"
+fi
+PS1="[\[\033[1;32m\]\w\[\033[0m\]] \[\033[0m\]\[\033[1;36m\]\$(git_branch)\[\033[0;33m\]\[\033[0m\]${PS1_P} "
 # for git
 alias gitsw='git show'
 alias gitgl='git log --pretty=format:\"%C(Red)%h %C(yellow)[%ai] %C(reset)<%an> %Cgreen%s%Creset\"'
@@ -145,7 +151,7 @@ export GREP_OPTIONS="--exclude-dir=.git"
 
 export PATH=$PATH:`echo $HOME`/bin:
 
-source /root/.git-completion.bash
+#source /root/.git-completion.bash
 
 export NVM_DIR="/root/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
