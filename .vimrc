@@ -273,8 +273,12 @@ inoremap de<tab> #define
 "inoremap <cr> <cr>
 inoremap hack<tab>	/* @xiong */<esc>0lllli
 inoremap hacke<tab> /* #xiong */<esc>0lllli
-nmap <leader>ahk  o<esc>\cA added by cvte_peter <esc>
-nmap <leader>ahe  o<esc>\cA end by cvte_peter <esc>
+"nmap <leader>ahk  o<esc>\cAkugou<esc>
+"nmap <leader>ahe  o<esc>\cAend of kugou<esc>
+nmap <leader>ahk  <esc>okugou<esc>\c<space>
+nmap <leader>ahe  <esc>oend of kugou<esc>\c<space>
+nmap <leader>aahk  o# kugou<esc>
+nmap <leader>aahe  o# end of kugou<esc>
 nmap <leader>mhk  o<esc>\cA modified by cvte_peter <esc>
 nmap <leader>mhe  o/* end@xiongjianfei */<esc>
 nmap <leader>xgd  ixiongjianfei <c-r>=strftime("%Y-%m-%d")<cr><esc>
@@ -477,6 +481,7 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.aux,*.dvi,tags
 " to hex
 nmap \hex  :%!xxd<cr>
 
+" quickfix
 nmap \cq :cclose<cr>
 
 " cscope
@@ -500,10 +505,10 @@ imap <c-b> <esc>bbi
 " normal mode
 "
 
-
-
-
-
+"unmap ,
+"unmap .
+nmap , <c-d>
+nmap . <c-u>
 
 
 nmap \tr :call append(line("."), 'Slog.i("line", getTraceInfo() + "====" + "'. getline(line(".")) .'");')<cr>
@@ -512,3 +517,5 @@ nmap \tr :call append(line("."), 'Slog.i("line", getTraceInfo() + "====" + "'. g
 
 " call:
 " setline getline append
+
+"let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
