@@ -155,3 +155,5 @@ export PATH=$PATH:`echo $HOME`/bin:
 
 export NVM_DIR="/root/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+bind -x '"\C-R": READLINE_LINE=$(history | tac | cut -c 8- | percol --query "${READLINE_LINE}") READLINE_POINT='
