@@ -165,3 +165,4 @@ export USE_CCACHE=1
 export CCACHE_DIR=/home/jianfei/.cache
 export CACHE_UMASK=002
 unset CCACHE_HARDLINK
+bind -x '"\C-R": READLINE_LINE=$(history | tac | cut -c 8- | percol --query "${READLINE_LINE}") READLINE_POINT='
