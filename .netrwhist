@@ -1,5 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/xjf/codes/mtk/pure/more/SDK4.4.2/mediatek/custom/cvte_1012hn/kernel/alsps'
-let g:netrw_dirhist_2='/home/xjf/codes/mtk/customer/condor'
-let g:netrw_dirhist_3='/home/xjf/ssd/mt8382/SDK4.4.2/mediatek/custom/common/resource_overlay'
+let g:netrw_dirhist_cnt =0
