@@ -513,9 +513,20 @@ nmap . <c-u>
 
 nmap \tr :call append(line("."), 'Slog.i("line", getTraceInfo() + "====" + "'. getline(line(".")) .'");')<cr>
 
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap ss <Plug>(easymotion-s2)
+map sj <Plug>(easymotion-j)
+map sk <Plug>(easymotion-k)
+map sw <Plug>(easymotion-w)
+map sb <Plug>(easymotion-b)
+"nmap sf <Plug>(easymotion-lineforward)
+"nmap sf <Plug>(easymotion-linebackward)
+
+
 
 
 " call:
 " setline getline append
+
 
 "let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }

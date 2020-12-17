@@ -1,0 +1,8 @@
+let g:EasyMotion_override_acejump = 0
+set easymotion
+
+nmap ss <Plug>(easymotion-s2)
+map sj <Plug>(easymotion-j)
+map sk <Plug>(easymotion-k)
+map sw <Plug>(easymotion-w)
+map sb <Plug>(easymotion-b)
